@@ -1,0 +1,37 @@
+Student Name: Chase Calodney
+Project Title: Efficient Win Rate Lookup for Dota Hero Combinations Using Hash Tables
+1. Problem Statement
+Input:
+The input data for this project will come from OpenDota match records. OpenDota provides Dota 2 match data, and historical OpenDota data dumps have included over 1 billion public matches(https://blog.opendota.com/2017/03/24/datadump2/). For this project, I will use a fixed local subset of match data in JSON format collected from the OpenDota API.
+
+Output:
+Given a query pattern, such as a specific 2-hero or 3-hero combination, the algorithm should return all matches containing that pattern and calculate the corresponding win rate. A correct result means the optimized approach returns the same matching set and win-rate calculation as the brute-force baseline.
+
+Constraints:
+Performance should be an average query time of under 100ms and memory budget should stay under 1 GB.
+
+2. Motivation
+As an avid Dota player, analyzing match statistics is something I find both interesting and personally useful. With hundreds of millions of matches available, efficiently navigating this data becomes essential. A naive approach that scans every match for each query would become increasingly slow as the dataset grows. By choosing a more appropriate algorithm, such as indexing hero combinations in a hash table, it becomes much more practical.
+3. Candidate Approaches
+Approach A: Baseline
+•Algorithm/Data Structure: Linear Scan
+•Description: In the baseline approach, the algorithm will scan through every match in the dataset each time a query is made. For each match, the heroes on both teams will be checked to see if the requested hero pair appears in that match. If the pair appears, the match result will be recorded so the win rate can be calculated.
+•Theoretical Complexity:
+•Time: O(N)
+•Space: O(1)
+Approach B: Optimized
+•Algorithm/Data Structure: Hash Table
+•Description: In the optimized approach, the dataset will first be preprocessed to build a hash table that stores statistics for hero pairs. For each match in the dataset, all hero pairs that appear in that match will be generated and inserted into the hash table.
+•Theoretical Complexity:
+•Time: O(N) for preprocessing, then O(1) for lookup.
+•Space: O(k), where k is number of possible hero pairings. Because of how this scales, I am planning on limiting this to pairs of two and three only.
+4. Evaluation Plan
+•Runtime: Will use time.perf_counter() on queries of increasing size.
+•Memory: Will use tracemalloc for comparison of memory requirements.
+•Correctness: Correctness will be verified by comparing the results of the optimized hash table approach with the baseline linear scan method. I will also run manual checks on small datasets just in case.
+•Dataset Realism: I will be scaling the dataset I’m using to test how it works at, for example, 10,000 games, then 100,000, then 1,000,000 games.
+5. Dataset Plan
+•Source: OpenAI API (https://docs.opendota.com/)
+
+
+
