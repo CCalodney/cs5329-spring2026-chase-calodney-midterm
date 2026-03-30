@@ -20,19 +20,21 @@ Preprocessing is O(N) where N is the number of matches, since each match generat
 
 ## 5. Benchmark Results
 
-Pairs
------
-Dataset    Baseline Avg    HT Build      HT Query     Memory     Speedup
-10K        9.45 ms         67.54 ms      0.001 ms     1.32 MB    9,450x
-100K       96.32 ms        717.35 ms     0.0013 ms    1.42 MB    74,092x
-1M         962.47 ms       9,453 ms      0.0011 ms    1.78 MB    874,973x
+### Pairs
 
-Triples
--------
-Dataset    Baseline Avg    HT Build      HT Query     Memory     Speedup
-10K        9.98 ms         153.32 ms     0.0028 ms    20.25 MB   3,564x
-100K       99.15 ms        1,122 ms      0.0036 ms    49.18 MB   27,542x
-1M         1,009 ms        14,711 ms     0.0074 ms    56.17 MB   136,404x
+| Dataset | Baseline Avg | HT Build | HT Query | Memory | Speedup |
+|---------|-------------|----------|----------|--------|---------|
+| 10K | 9.45 ms | 67.54 ms | 0.001 ms | 1.32 MB | 9,450x |
+| 100K | 96.32 ms | 717.35 ms | 0.0013 ms | 1.42 MB | 74,092x |
+| 1M | 962.47 ms | 9,453 ms | 0.0011 ms | 1.78 MB | 874,973x |
+
+### Triples
+
+| Dataset | Baseline Avg | HT Build | HT Query | Memory | Speedup |
+|---------|-------------|----------|----------|--------|---------|
+| 10K | 9.98 ms | 153.32 ms | 0.0028 ms | 20.25 MB | 3,564x |
+| 100K | 99.15 ms | 1,122 ms | 0.0036 ms | 49.18 MB | 27,542x |
+| 1M | 1,009 ms | 14,711 ms | 0.0074 ms | 56.17 MB | 136,404x |
 
 ## 6. Analysis
 The basline scales linearly with dataset size exactly as you'd expect. As the data set increases by 10x, so does the query time. At 1M matches, the baseline goes over the 100ms query time target.
