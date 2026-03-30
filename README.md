@@ -28,7 +28,7 @@ python midterm_project.py
 Benchmark Results
 =================
 
-### Pairs (combo size = 2)
+### Pairs
 
 | Dataset | Baseline Avg | HT Build | HT Query | Memory | Speedup |
 |---------|-------------|----------|----------|--------|---------|
@@ -36,7 +36,7 @@ Benchmark Results
 | 100K | 96.32 ms | 717.35 ms | 0.0013 ms | 1.42 MB | 74,092x |
 | 1M | 962.47 ms | 9,453 ms | 0.0011 ms | 1.78 MB | 874,973x |
 
-### Triples (combo size = 3)
+### Triples
 
 | Dataset | Baseline Avg | HT Build | HT Query | Memory | Speedup |
 |---------|-------------|----------|----------|--------|---------|
